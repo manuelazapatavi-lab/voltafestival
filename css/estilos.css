@@ -134,7 +134,7 @@ a:hover {
   display: flex;                 
   flex-wrap: wrap;               
   align-items: center;           
-  justify-content: flex-start;   
+  justify-content: space-between;
   gap: 0.5rem 0.6rem;            
 }
 
@@ -154,20 +154,109 @@ a:hover {
   letter-spacing: 0.08em;
 }
 
+/* ===== MENÚ HAMBURGUESA (celular y tablet: menos de 1024px) ===== */
+
+/* El checkbox va escondido: la etiqueta (label) es el botón que se ve */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hamburguesa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+/* Las 3 rayitas: una es el span y las otras dos son ::before y ::after */
+.hamburguesa__linea,
+.hamburguesa__linea::before,
+.hamburguesa__linea::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transition: transform 0.25s, background 0.25s;
+}
+
+.hamburguesa__linea {
+  position: relative;
+}
+
+.hamburguesa__linea::before,
+.hamburguesa__linea::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburguesa__linea::before {
+  top: -7px;
+}
+
+.hamburguesa__linea::after {
+  top: 7px;
+}
+
+/* Cuando el menú está abierto, las rayitas se vuelven una X */
+.menu-toggle:checked + .hamburguesa .hamburguesa__linea {
+  background: transparent;
+}
+
+.menu-toggle:checked + .hamburguesa .hamburguesa__linea::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle:checked + .hamburguesa .hamburguesa__linea::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Para quien navega con teclado */
+.menu-toggle:focus-visible + .hamburguesa {
+  outline: 2px solid #ff3da8;
+  border-radius: 6px;
+}
+
+/* Menú y acciones: escondidos hasta que se abra la hamburguesa */
 .menu,
 .cabecera__acciones {
-  display: contents;             
+  display: none;
+  width: 100%;
 }
 
 .menu__enlace {
-  font-size: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0;             
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.menu__enlace:last-child {
-  order: 2;                      
+.cabecera__acciones .boton {
+  padding: 0.7rem 1.3rem;
+  font-size: 0.8rem;
 }
+
+@media (max-width: 1023px) {
+  .menu-toggle:checked ~ .menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-toggle:checked ~ .cabecera__acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 1.25rem;
+  }
+}
+
+
 
 .menu__enlace--activo:link,
 .menu__enlace--activo:visited {
@@ -181,7 +270,6 @@ a:hover {
   gap: 0.35rem;
   font-size: 0.8rem;
   font-weight: 600;
-  order: 3;                      
   border: 1px solid rgba(255, 255, 255, 0.35); 
   border-radius: 999px;          
   padding: 0.15rem 0.3rem 0.15rem 0.7rem;
@@ -194,12 +282,6 @@ a:hover {
   padding: 0 0.4rem;
 }
 
-.cabecera__acciones .boton {
-  order: 1;                      
-  padding: 0.4rem 0.7rem;        
-  font-size: 0.6rem;
-  letter-spacing: 0;
-}
 
 
 
@@ -669,39 +751,10 @@ a:hover {
 
 
 @media (min-width: 768px) {
-  .menu {
-    display: flex;               
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .cabecera__acciones {
-    display: flex;               
-    align-items: center;
-    gap: 0.85rem;
-  }
-
-  .cabecera__interno {
-    justify-content: space-between; 
-  }
-
-  .menu__enlace:last-child,
-  .idioma,
-  .cabecera__acciones .boton {
-    order: 0;                    
-  }
-
-  .menu__enlace {
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;   
-  }
-
   .home {
     min-height: 100vh;           
   }
 
-  .cabecera__acciones .boton,
   .home__botones .boton {
     padding: 0.85rem 1.6rem;     
     font-size: 0.85rem;
@@ -783,12 +836,39 @@ a:hover {
 
 
 @media (min-width: 1024px) {
+  /* Se esconde la hamburguesa y se muestra el menú en fila */
+  .hamburguesa {
+    display: none;
+  }
+
   .cabecera {
-    padding: 1.25rem 0;          
+    padding: 1.25rem 0;
   }
 
   .menu {
-    gap: 1.75rem;                
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    gap: 1.75rem;
+  }
+
+  .menu__enlace {
+    padding: 0;
+    border-bottom: none;
+    font-size: 0.8rem;
+  }
+
+  .cabecera__acciones {
+    display: flex;
+    align-items: center;
+    width: auto;
+    gap: 0.85rem;
+  }
+
+  .cabecera__acciones .boton {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
   }
 
   .home__contenido {
