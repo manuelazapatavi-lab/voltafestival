@@ -1,0 +1,797 @@
+* {
+  margin: 0;                     
+  padding: 0;                    
+  box-sizing: border-box;        
+}
+
+body {
+  font-family: "Manrope", sans-serif;     
+  background: #050505;      
+  color: #ffffff;         
+  line-height: 1.6;             
+}
+
+img {
+  max-width: 100%;               
+  display: block;                
+}
+
+ul {
+  list-style: none;              
+}
+
+.contenedor {
+  width: min(100% - 2rem, 1100px); 
+  margin-inline: auto;           
+}
+.contenedor--form {
+  width: min(100% - 2rem, 680px); 
+}
+
+a:link {
+  color: #ffffff;          
+  text-decoration: none;         
+}
+
+a:visited {
+  color: #d4a0c0;                
+}
+
+a:hover {
+  color: #ff3da8;   
+}
+
+
+.boton:link,
+.boton:visited {
+  color: #ffffff;
+}
+
+.boton--borde:link,
+.boton--borde:visited {
+  color: #ffffff;
+}
+
+.boton--borde:hover {
+  color: #050505;           
+  background: #ffffff;
+}
+
+.menu__enlace:link,
+.menu__enlace:visited {
+  color: rgba(255, 255, 255, 0.85); 
+}
+
+.menu__enlace:hover,
+.menu__enlace--activo:link,
+.menu__enlace--activo:visited {
+  color: #ff3da8;  
+}
+
+.logo:link,
+.logo:visited,
+.logo:hover {
+  color: #ffffff;         
+}
+
+.pie__enlace:link {
+  color: #ffffff;
+  text-decoration: underline;   
+  text-underline-offset: 3px;   
+}
+
+.pie__enlace:visited {
+  color: #d4a0c0;
+  text-decoration: underline;
+}
+
+.pie__enlace:hover {
+  color: #ff3da8;
+}
+
+.boton {
+  display: inline-flex;          
+  align-items: center;           
+  justify-content: center;       
+  padding: 0.85rem 1.6rem;     
+  border-radius: 999px;          
+  font-family: "Manrope", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;             
+  letter-spacing: 0.04em;       
+  cursor: pointer;              
+  border: none;                  
+  }
+
+.boton--magenta {
+  background: #e11d8a;    
+}
+
+.boton--magenta:hover {
+  background: #ff3da8;
+  transform: translateY(-2px);   
+}
+
+.boton--borde {
+  background: transparent;      
+  border: 1px solid #ffffff; 
+}
+
+.cabecera {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;                 
+  padding: 0.5rem 0;             
+}
+.cabecera--pagina {
+  background: rgba(5, 5, 5, 0.95); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.cabecera__interno {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+  display: flex;                 
+  flex-wrap: wrap;               
+  align-items: center;           
+  justify-content: flex-start;   
+  gap: 0.5rem 0.6rem;            
+}
+
+.logo {
+  display: inline-flex;          
+  align-items: center;
+  gap: 0.55rem;                  
+}
+
+.logo__icono {
+  width: 22px;                   
+}
+
+.logo__texto {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+}
+
+.menu,
+.cabecera__acciones {
+  display: contents;             
+}
+
+.menu__enlace {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;             
+}
+
+.menu__enlace:last-child {
+  order: 2;                      
+}
+
+.menu__enlace--activo:link,
+.menu__enlace--activo:visited {
+  text-decoration: underline;    
+  text-underline-offset: 4px;    
+}
+
+.idioma {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  order: 3;                      
+  border: 1px solid rgba(255, 255, 255, 0.35); 
+  border-radius: 999px;          
+  padding: 0.15rem 0.3rem 0.15rem 0.7rem;
+}
+
+.idioma__opcion:last-child {
+  background: #e11d8a;           
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 0 0.4rem;
+}
+
+.cabecera__acciones .boton {
+  order: 1;                      
+  padding: 0.4rem 0.7rem;        
+  font-size: 0.6rem;
+  letter-spacing: 0;
+}
+
+
+
+.home {
+  position: relative;            
+  min-height: 360px;             
+  display: flex;
+  align-items: center;           
+  overflow: hidden;              
+}
+
+.home__fondo {
+  position: absolute;            
+  inset: 0;                      
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             
+  object-position: center;       
+  z-index: 0;                    
+}
+
+.home__contenido {
+  position: relative;
+  z-index: 2;                    
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;        
+  gap: 1.5rem;
+  padding: 2rem 0;              
+  }
+
+.home__lugar,.home__fechas {
+  color: #f08a3a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(4rem, 14vw, 8.5rem); 
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.home__eslogan {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.85rem;
+}
+
+.home__frase {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;               
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.home__botones {
+  display: flex;
+  flex-direction: column;        
+  align-items: flex-start;       
+  gap: 0.5rem;
+}
+
+.home__botones .boton {
+  width: auto;                   
+  padding: 0.4rem 0.9rem;        
+  font-size: 0.7rem;
+}
+
+
+
+.contador {
+  padding: 2.5rem 1rem 1rem;
+}
+
+.contador__caja {
+  width: min(100%, 900px);
+  margin-inline: auto;
+  background: #0c0f1a;
+  border: 1px solid #e11d8a;
+  border-radius: 18px;
+  padding: 1.6rem 1.5rem;
+  text-align: center;
+}
+
+.contador__texto {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  color: #e11d8a;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+}
+
+.contador__fecha {
+  display: block;                
+  margin-top: 0.25rem;
+}
+
+
+
+.sobre {
+  padding: 3.5rem 1.5rem 2rem;
+  text-align: left;              
+}
+
+.sobre__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  text-align: center;            
+}
+
+.sobre__parrafo {
+  max-width: 720px;              
+  margin: 0 auto;                
+  color: #ffffff;
+  text-align: center;
+}
+
+
+
+.seccion__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+
+.artistas {
+  padding: 3rem 0 3.5rem;
+}
+
+.artistas--pagina {
+  padding-top: 1rem;             
+}
+
+.artistas__rejilla {
+  display: flex;
+  flex-direction: column;        
+  gap: 1.5rem;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.artista {
+  text-align: center;
+}
+
+.artista__foto {
+  width: 55%;                    
+  margin: 0 auto 1rem;           
+  aspect-ratio: 1 / 1;           
+  object-fit: cover;             
+  border-radius: 4px;
+}
+
+.artista__nombre {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+.artista__genero {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.artistas__accion {
+  display: flex;
+  justify-content: center;       
+  margin-top: 2.5rem;
+}
+
+
+
+.viajeros {
+  padding: 2rem 0 5rem;
+}
+
+.viajeros__rejilla {
+  display: flex;
+  flex-direction: column;        
+  gap: 1.25rem;
+}
+
+.viajeros .seccion__titulo {
+  text-align: left;              
+}
+
+.info {
+  width: 62%;                    
+  margin-inline: auto;           
+  background: #0c0f1a;
+  border: 1px solid #2a3355;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+}
+
+.info__titulo {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.25rem;
+}
+
+.info__texto {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+
+
+.pie {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 0 4rem;
+}
+
+.pie__interno {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pie__etiqueta {
+  color: #e11d8a;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.pie__nombre {
+  font-weight: 400;
+}
+
+.pie__dato {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.pie__redes {
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.pie__paginas {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+
+
+.pagina {
+  padding: 7rem 0 4rem;          
+  min-height: 80vh;
+}
+
+.pagina__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.pagina__intro {
+  color: #b8b8c4;
+  margin-bottom: 2rem;
+}
+
+.pagina__acciones {
+  display: flex;
+  flex-direction: column;        
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+
+
+.programacion {
+  margin-top: 1rem;
+}
+
+.lineup-dia {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+.lineup-dia__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  color: #e11d8a;
+  margin-bottom: 0.85rem;
+}
+
+.lineup-dia__rejilla {
+  display: flex;
+  flex-direction: column;        
+  gap: 1rem;
+}
+
+.lineup-escenario {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2a3355;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.lineup-escenario__nombre {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+  color: #f08a3a;
+}
+
+.lineup-lista li {
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lineup-lista li:last-child {
+  border-bottom: none;           
+}
+
+.lineup-lista li div {
+  display: inline;
+  color: #b8b8c4;
+  font-size: 0.85rem;
+}
+
+
+
+.descuentos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.descuento {
+  background: #0c0f1a;
+  border: 1px solid #2a3355;
+  border-left: 3px solid #e11d8a; 
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.descuento__titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.3rem;
+}
+
+.descuento__texto {
+  color: #b8b8c4;
+  font-size: 0.9rem;
+}
+
+
+
+.compra__grupo {
+  border: none;                  
+  margin-bottom: 1.4rem;
+}
+
+.compra__leyenda {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.ticket {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  width: 100%;
+  margin-bottom: 0.65rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid #2a3355;
+  border-radius: 12px;
+  background: #080b14;
+}
+
+.ticket__nombre {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ticket__precio {
+  color: #e11d8a;
+  font-weight: 700;
+}
+
+.ticket__badge {
+  color: #f08a3a;
+  width: 100%;                   
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ticket__desc {
+  color: #b8b8c4;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.dias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.dia {
+  margin: 0;
+}
+
+.dia__texto {
+  display: inline-flex;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid #2a3355;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.cantidad {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.cantidad__opcion {
+  margin: 0;
+}
+
+.cantidad__numero {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;            
+  border: 1px solid #2a3355;
+  font-weight: 700;
+}
+
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex;               
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .cabecera__acciones {
+    display: flex;               
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .cabecera__interno {
+    justify-content: space-between; 
+  }
+
+  .menu__enlace:last-child,
+  .idioma,
+  .cabecera__acciones .boton {
+    order: 0;                    
+  }
+
+  .menu__enlace {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;   
+  }
+
+  .home {
+    min-height: 100vh;           
+  }
+
+  .cabecera__acciones .boton,
+  .home__botones .boton {
+    padding: 0.85rem 1.6rem;     
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .home__frase {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 7vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .artista__foto {
+    width: 100%;                 
+  }
+
+  .home__contenido {
+    flex-direction: row;         
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .home__marca,
+  .home__llamada {
+    flex: 1;                     
+  }
+
+  .home__botones {
+    align-items: flex-start;
+  }
+
+  .home__botones .boton {
+    width: auto;                 
+  }
+
+  .artistas__rejilla {
+    flex-direction: row;         
+    max-width: none;
+  }
+
+  .artista {
+    flex: 1;                     
+  }
+
+  .viajeros__rejilla {
+    flex-direction: row;
+    flex-wrap: wrap;             
+  }
+
+  .info {
+    flex: 1 1 calc(50% - 0.65rem); 
+  }
+
+  .lineup-dia__rejilla {
+    flex-direction: row;         
+  }
+
+  .lineup-escenario {
+    flex: 1;
+  }
+
+  .descuentos {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .descuento {
+    flex: 1 1 calc(33% - 0.6rem); 
+  }
+
+  .pagina__acciones {
+    flex-direction: row;         
+    flex-wrap: wrap;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .cabecera {
+    padding: 1.25rem 0;          
+  }
+
+  .menu {
+    gap: 1.75rem;                
+  }
+
+  .home__contenido {
+    gap: 2rem;
+  }
+}
